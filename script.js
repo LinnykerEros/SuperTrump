@@ -65,51 +65,49 @@ function sortearCarta() {
   cartaJogador = baralho[numeroCartaJogador];
 
   console.log(cartaJogador.imagem);
-  exibirImagem();
+  exibirImagemJogador();
   //exibo meus atributos depois de sortear as cartas
-  exibirAtributos();
+  exibirAtributosJogador();
 }
-function exibirImagem() {
+function exibirImagemJogador() {
   //Aqui eu crio a imagem da respectiva carta gerada aleatóriamente para o jogador e a máquina.
   //pego o que tem na minha div "imagemJogador"
   let imagemJ = document.getElementById("imagemJogador"); //minha div "imagemJogador"
   let imagemJogador = `<img class="imagem" src="${cartaJogador.imagem}" alt="">`; //crio uma variavel que recebe a tag IMG recebendo a imagem da carta sorteada
-  imagemJ.innerHTML += imagemJogador; //coloco a imagemJOGADOR dentro da minha div "imagemJogador"
-
-  let imagemM = document.getElementById("imagemMaquina");
-  let imagemMaquina = `<img class="imagem" src="${cartaMaquina.imagem}" alt=""> `; //crio uma variavel que recebe a tag IMG recebendo a imagem da carta sorteada
-  imagemM.innerHTML += imagemMaquina; //coloco a imagemMAQUINA dentro da minha div"imagemMaquina"
-
+  imagemJ.innerHTML = imagemJogador; //coloco a imagemJOGADOR dentro da minha div "imagemJogador"
   document.getElementById("btnSortear").disabled = true;
   document.getElementById("btnJogar").disabled = false;
 }
-//exibe meus atributos em opção de input(selecionar), de acordo com cada carta sorteada
-function exibirAtributos() {
-  let opcoesMaquina = document.getElementById("opcoesMaquina");
-
+function exibirImagemMaquina() {
+  let imagemM = document.getElementById("imagemMaquina");
+  let imagemMaquina = `<img class="imagem" src="${cartaMaquina.imagem}" alt=""> `; //crio uma variavel que recebe a tag IMG recebendo a imagem da carta sorteada
+  imagemM.innerHTML = imagemMaquina; //coloco a imagemMAQUINA dentro da minha div"imagemMaquina"
+  exibirAtributosMaquina();
+}
+//exibe meus atributos do jogador, em opção de input(selecionar), de acordo com cada carta sorteada
+function exibirAtributosJogador() {
   let inputRadio = document.getElementById("inputRadioJogador"); //div do input
   let nomeAtributo = document.getElementById("nomeAtributo"); //div do nome do atributo e o valor ex: attack = 10
   let escrevoInput = "";
   let escrevoNomeAtributoValor = "";
-
-  let nomeAtributoMaquina = document.getElementById("nomeAtributoMaquina"); //div do nome do atributo e o valor ex: defesa = 10
-  let opcoesTexto2 = "";
-
   //faço uma váriavel(atributos) percorrer a cartaJogador e dentro da carta acesso meu objeto ATRIBUTOS,
   // criando um input(botão selecionar), para cada um.
   for (let atributos in cartaJogador.atributos) {
     escrevoInput += `<input class="radio" type="radio" name="atributo" value="${atributos}">`;
     escrevoNomeAtributoValor += `  ${atributos}=${cartaJogador.atributos[atributos]}`;
   }
+  inputRadio.innerHTML += escrevoInput;
+  nomeAtributo.innerHTML += escrevoNomeAtributoValor;
+}
+
+function exibirAtributosMaquina() {
+  let nomeAtributoMaquina = document.getElementById("nomeAtributoMaquina"); //div do nome do atributo e o valor ex: defesa = 10
+  let opcoesTexto2 = "";
   for (let atributos1 in cartaMaquina.atributos) {
     opcoesTexto2 += `${atributos1} = ${cartaMaquina.atributos[atributos1]}<br>`;
   }
-
-  inputRadio.innerHTML += escrevoInput;
-  nomeAtributo.innerHTML += escrevoNomeAtributoValor;
-  nomeAtributoMaquina.innerHTML += opcoesTexto2;
+  nomeAtributoMaquina.innerHTML = opcoesTexto2;
 }
-
 //obtendo o valor que eu selecionei no meu input RADIO(na função exibeOpocoes())
 function obtemAtributoSelecionado() {
   //to trazendo todos os radios que tem o nome "atributos"
@@ -130,19 +128,19 @@ function jogar() {
   //crio duas variaveis para receber a carta com o atributo selecionado(a variavel que eu criei em cima)
   let valorCartaJogador = cartaJogador.atributos[atributoSelecionado];
   let valorCartaMaquina = cartaMaquina.atributos[atributoSelecionado];
-  // if (valorCartaJogador) {
-  //   alert("tente");
-  // }
-  // console.log(`>>>${atributoSelecionado.value}`);
+
   if (valorCartaJogador > valorCartaMaquina) {
+    exibirImagemMaquina();
     resultado.innerHTML = `You won, Player Card: ${cartaJogador.nome}; Attribute: ${atributoSelecionado}=${valorCartaJogador}`;
     resultado.innerHTML += `<br><button id="refresh">Reload</button>`;
   } else if (valorCartaMaquina > valorCartaJogador) {
+    exibirImagemMaquina();
     resultado.innerHTML = `You lose, Machine Card: ${cartaMaquina.nome}; Attribute: ${atributoSelecionado}=${valorCartaMaquina}`;
     resultado.innerHTML += `<br><button id="refresh">Reload</button>`;
   } else if (atributoSelecionado == undefined) {
     resultado.innerHTML = "Please check an attribute.";
   } else {
+    exibirImagemMaquina();
     resultado.innerHTML = "A tie";
     resultado.innerHTML += `<br><button id="refresh">Reload</button>`;
   }
