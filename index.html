@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Super Trump</title>
+  </head>
+  <body>
+    <div class="container">
+      <img
+        src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-super-trunfo.png"
+        class="page-logo"
+        alt=""
+      />
+      <h1 class="page-title">Super Trump</h1>
+      <div id="container-inputs">
+        Image:
+        <input
+          type="text"
+          name="urlImagem"
+          id="urlImagem"
+          class="inputs"
+          placeholder="Enter url with the image of your letter"
+        />
+        <br />
+        Name:
+        <input
+          type="text"
+          name="nome"
+          id="nome"
+          class="inputs"
+          placeholder="Enter the name of your letter"
+        />
+        <br />
+        Attack:
+        <input
+          type="number"
+          name="ataque"
+          id="attack"
+          class="inputs"
+          placeholder="Enter your card's attack"
+        />
+        <br />
+        Defense:
+        <input
+          type="number"
+          name="defesa"
+          id="defense"
+          class="inputs"
+          placeholder="Enter the defense of your letter"
+        />
+        <br />
+        Magic:
+        <input
+          type="number"
+          name="magia"
+          id="magic"
+          class="inputs"
+          placeholder="Digite a magia da sua carta"
+        />
+        <br />
+
+        <input type="button" value="Add" onclick="novaCarta()" />
+      </div>
+
+      <button onclick="sortearCarta()" id="btnSortear">Choose Randomly</button>
+
+      <form id="form">
+        <h2>Escolha o seu atributo</h2>
+
+        <div id="container-cartas">
+          <div id="cartaJogador">
+            <div id="title">
+              <h3>Player Card</h3>
+            </div>
+            <div id="imagemJogador"></div>
+            <div id="opcoesJogador">
+              <div id="inputRadioJogador"></div>
+              <div id="nomeAtributo"></div>
+            </div>
+          </div>
+          <div id="cartaMaquina">
+            <div id="title">
+              <h3>Machine Card</h3>
+            </div>
+            <div id="imagemMaquina"></div>
+            <div id="opcoesMaquina">
+              <div id="nomeAtributoMaquina"></div>
+            </div>
+          </div>
+        </div>
+        <div id="button">
+          <button type="button" id="btnJogar" onclick="jogar()" disabled="true">
+            Play
+          </button>
+          <div id="resultado"></div>
+        </div>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
