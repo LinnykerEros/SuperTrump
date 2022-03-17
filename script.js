@@ -1,6 +1,6 @@
 let cartas1 = {
   nome: "Jibe",
-  imagem: " https://criticalhits.com.br/wp-content/uploads/2020/04/jimbe.jpg",
+  imagem: "https://criticalhits.com.br/wp-content/uploads/2020/04/jimbe.jpg",
   atributos: {
     attack: 7,
     defense: 15,
@@ -31,9 +31,8 @@ let cartas3 = {
 let baralho = [cartas1, cartas2, cartas3];
 let cartaMaquina; //Carta da máquina
 let cartaJogador; //Carta do jogador
-
 function novaCarta() {
-  let imagemCarta = document.getElementById("imagem");
+  let imagemCarta = document.getElementById("urlImagem");
   let nomeCarta = document.getElementById("nome");
   let ataqueCarta = document.getElementById("attack");
   let defesaCarta = document.getElementById("defense");
@@ -48,6 +47,12 @@ function novaCarta() {
     },
   };
   baralho.push(novaCarta);
+  // document.getElementById("add").disabled = true;
+  imagemCarta.value = "";
+  nomeCarta.value = "";
+  ataqueCarta.value = "";
+  defesaCarta.value = "";
+  magiaCarta.value = "";
 }
 console.log(baralho);
 //Sorteando uma carta que está no meu vetor de objetos para a cartaMaquina e cartaJogador
