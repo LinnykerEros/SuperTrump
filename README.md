@@ -1,1 +1,1 @@
-# http://SuperTrump.github.io
+# https://linnykereros.github.io/SuperTrump.github.io/
