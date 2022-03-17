@@ -16,55 +16,65 @@
       />
       <h1 class="page-title">Super Trump</h1>
       <div id="container-inputs">
-        Image:
-        <input
-          type="text"
-          name="urlImagem"
-          id="urlImagem"
-          class="inputs"
-          placeholder="Enter url with the image of your letter"
-        />
-        <br />
-        Name:
-        <input
-          type="text"
-          name="nome"
-          id="nome"
-          class="inputs"
-          placeholder="Enter the name of your letter"
-        />
-        <br />
-        Attack:
-        <input
-          type="number"
-          name="ataque"
-          id="attack"
-          class="inputs"
-          placeholder="Enter your card's attack"
-        />
-        <br />
-        Defense:
-        <input
-          type="number"
-          name="defesa"
-          id="defense"
-          class="inputs"
-          placeholder="Enter the defense of your letter"
-        />
-        <br />
-        Magic:
-        <input
-          type="number"
-          name="magia"
-          id="magic"
-          class="inputs"
-          placeholder="Digite a magia da sua carta"
-        />
-        <br />
+        <div id="names">
+          <p>Image:</p>
+          <p>Name:</p>
+          <p>Attack:</p>
+          <p>Defense:</p>
+          <p>Magic:</p>
+        </div>
+        <div id="containerFilho-inputs">
+          <input
+            type="text"
+            name="urlImagem"
+            id="urlImagem"
+            class="inputs"
+            placeholder="Enter url with the image of your letter"
+          />
+          <br />
 
-        <input type="button" value="Add" onclick="novaCarta()" />
+          <input
+            type="text"
+            name="nome"
+            id="nome"
+            class="inputs"
+            placeholder="Enter the name of your letter"
+          />
+          <br />
+
+          <input
+            type="number"
+            name="ataque"
+            id="attack"
+            class="inputs"
+            placeholder="Enter your card's attack"
+          />
+          <br />
+
+          <input
+            type="number"
+            name="defesa"
+            id="defense"
+            class="inputs"
+            placeholder="Enter the defense of your letter"
+          />
+          <br />
+
+          <input
+            type="number"
+            name="magia"
+            id="magic"
+            class="inputs"
+            placeholder="Digite a magia da sua carta"
+          />
+          <br />
+          <br />
+          <!-- <input type="button" value="Add" onclick="novaCarta()" /> -->
+        </div>
       </div>
-
+      <button id="add" onclick="novaCarta()">Add</button>
+      <br />
+      <br />
       <button onclick="sortearCarta()" id="btnSortear">Choose Randomly</button>
 
       <form id="form">
