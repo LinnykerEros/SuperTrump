@@ -32,7 +32,10 @@ h2 {
 }
 
 #container-inputs {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
   padding: 10px 15px;
   color: white;
@@ -94,5 +97,21 @@ h2 {
 }
 
 #refresh {
+  cursor: pointer;
+}
+#containerFilho-inputs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#names {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-bottom: 43px;
+}
+
+#add {
   cursor: pointer;
 }
